@@ -7,11 +7,17 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "foreman": "^2.0.0",
+    "jquery": "^3.2.1",
     "marked": "^0.3.6",
+    "material-components-web": "^0.12.1",
+    "materialize-css": "^0.98.2",
     "mongoose": "^4.10.5",
     "nodemon": "^1.11.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.5.4",
+    "react-grid-system": "^2.9.2",
+    "react-toolbox": "^2.0.0-beta.12"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
