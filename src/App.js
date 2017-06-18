@@ -13,28 +13,13 @@ class App extends Component {
           <MuiThemeProvider>
             <TitleComponent />
           </MuiThemeProvider>
+          </div>
 
-  <div>
-    <Grid>
-      <Row>
-
-        <Col md={4}>
-        </Col>
-
-        <Col md={6}>
-          <MuiThemeProvider>
-          <GridLayout/>
-        </MuiThemeProvider>
-        </Col>
-
-        <Col md={2}>
-        </Col>
-
-      </Row>
-    </Grid>
-  </div>
+          <div className="content">
 
           </div>
+
+
         </div>
 
 
