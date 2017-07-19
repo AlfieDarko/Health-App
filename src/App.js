@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TitleComponent from './titleComponent';
-import GridLayout from './gridLayout';
-import {Grid, Col, Row} from 'react-bootstrap';
+import WorkoutBox from './WorkoutBox';
 
 class App extends Component {
   render() {
@@ -10,12 +9,16 @@ class App extends Component {
       <div className="App">
 
         <div className="App-header">
-          <MuiThemeProvider>
+          <MuiThemeProvider >
             <TitleComponent />
           </MuiThemeProvider>
           </div>
 
           <div className="content">
+      <WorkoutBox
+        url='http://localhost:3001/api/workouts'
+        pollInterval={2000}
+      />
 
           </div>
 

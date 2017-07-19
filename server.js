@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-  //and remove cacheing so we get the most recent comments
+  //and remove cacheing so we get the most recent workouts
 res.setHeader('Cache-Control', 'no-cache');
 next();
 })
@@ -43,7 +43,7 @@ router.route('/workouts')
         res.send(err);
       }
       else
-        // responds with a json object of our database comments
+        // responds with a json object of our database s
         res.json(workouts)
       });
     })
@@ -62,12 +62,12 @@ router.route('/workouts')
       res.send(err)
     }
     else
-    res.json({ message: 'Comment successfully added!'});
+    res.json({ message: 'Workout successfully added!'});
   });
 });
 
 router.route('/workouts/:workout_id')
-//put method gives chance to update comment based on id passed to route
+//put method gives chance to update workout based on id passed to route
 .put(function(req, res){
   Workout.findById(req.params.workout_id, function(err, workout){
     if(err)
@@ -86,16 +86,16 @@ router.route('/workouts/:workout_id')
         res.send(err)
       }
       else
-      res.json({message: 'Comment has been updated' });
+      res.json({message: 'Workout has been updated' });
     });
   });
 })
 .delete(function(req, res) {
-  // selects comment by ID then removes
-  Workout.remove({ _id: req.params.workout_id }, function(err, comment) {
+  // selects workout by ID then removes
+  Workout.remove({ _id: req.params.workout_id }, function(err, workout) {
     if(err)
       res.send(err);
-    res.json({ message: 'Comment has been deleted' })
+    res.json({ message: 'Workout has been deleted' })
   })
 });
 

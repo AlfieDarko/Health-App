@@ -30,6 +30,25 @@ handleImageURLChange(e){
 }
 handleSubmit(e){
   e.preventDefault();
+  let name = this.state.name.trim();
+  let description = this.state.description.trim();
+  let bodypart = this.state.bodypart.trim();
+  let imageURL = this.state.imageURL.trim();
+if (!name || !description){
+  return;
+}
+this.props.onWorkoutSubmit({
+  name: name,
+  description: description,
+  bodypart: bodypart,
+  imageURL: imageURL
+});
+this.setState({  name: name,
+  description: description,
+  bodypart: bodypart,
+  imageURL: imageURL
+})
+
   console.log(`${this.state.name} is "${this.state.description}"`)
 }
   render(){
@@ -41,8 +60,36 @@ handleSubmit(e){
           placeholder="Name of Workout..."
           style={style.workoutFormName}
           value={this.state.name}
-          onChange={this.handleNameChange}/>
+          onChange={this.handleNameChange}
+        />
+
+        <input
+          type="text"
+          placeholder="Describe workout..."
+          style={ style.workoutFormDescription}
+          value={this.state.description}
+          onChange={this.handleDescriptionChange}
+        />
+
+        <input
+          type="text"
+          placeholder="Name of body part"
+          style={style.workoutFormBodypart}
+          value={this.state.bodypart}
+          onChange={this.handleBodypartChange}
+        />
+
+        <input
+          type="text"
+          placeholder="image URL"
+          style={style.workoutFormImageURL}
+          value={this.state.imageURL}
+          onChange={this.handleImageURLChange}
+        />
+
       </form>
     )
   }
 }
+
+export default WorkoutForm;

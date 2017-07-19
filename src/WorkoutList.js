@@ -6,7 +6,12 @@ class WorkoutList extends Component {
   render(){
     let workoutNodes = this.props.data.map(workout => {
       return (
-        <Workout author={workout.author} key={workout.id}>
+        <Workout
+          name={workout.name}
+          uniqueID={ workout['_id'] }
+          onWorkoutDelete={ this.props.onCommentDelete}
+          onWorkoutUpdate={ this.props.onWorkoutUpdate}
+          key={ workout['_id'] }>
           {workout.text}
         </Workout>
       )
