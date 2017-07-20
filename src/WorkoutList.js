@@ -7,12 +7,12 @@ class WorkoutList extends Component {
     let workoutNodes = this.props.data.map(workout => {
       return (
         <Workout
-          name={workout.name}
+          name={workout.name || 'unknown'}
           uniqueID={ workout['_id'] }
-          onWorkoutDelete={ this.props.onCommentDelete}
+          onWorkoutDelete={ this.props.onWorkoutDelete}
           onWorkoutUpdate={ this.props.onWorkoutUpdate}
           key={ workout['_id'] }>
-          {workout.text}
+          {workout.description || 'empty!'}
         </Workout>
       )
     })

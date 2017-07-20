@@ -17,7 +17,9 @@ class Workout extends Component {
   this.updateWorkout = this.updateWorkout.bind(this);
   this.handleNameChange = this.handleNameChange.bind(this);
   this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+  this.handleBodypartChange = this.handleBodypartChange.bind(this);
   this.handleWorkoutUpdate = this.handleWorkoutUpdate.bind(this);
+  this.handleImageURLChange = this.handleImageURLChange.bind(this);
 };
 updateWorkout(e){
   e.preventDefault();
@@ -74,8 +76,8 @@ handleImageURLChange(e){
   this.setState({imageURL: e.target.value})
 }
 
-createMarkup() {
-  let rawMarkup = marked(this.props);
+rawMarkup() {
+  let rawMarkup = marked(this.props.children.toString());
   return { __html: rawMarkup };
 }
 
@@ -83,8 +85,13 @@ createMarkup() {
     return(
       <div style={style.workout }>
         <h3>{this.props.name}</h3>
-<span dangerouslySetInnerHTML={console.log(this.props)}/>
-<a style={ style.updateLink } href='#' onClick={this.updateWorkout}> Update</a>
+
+<span dangerouslySetInnerHTML={this.rawMarkup()}/>
+<a
+  style={ style.updateLink }
+  href='#'
+  onClick={this.updateWorkout}> Update</a>
+
         <a style={ style.deleteLink } href="#" onClick={ this.deleteWorkout}> Delete </a>
         { (this.state.toBeUpdated)
         ? (<form onSubmit={ this.handleWorkoutUpdate }>
@@ -120,7 +127,7 @@ createMarkup() {
             <input
               type="submit"
               style={ style.workoutFormPost }
-              value="Post"
+              value="Update"
             />
 
         </form>)

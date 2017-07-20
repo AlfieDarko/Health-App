@@ -57,8 +57,8 @@ class WorkoutBox extends Component {
       <div style={ style.workoutBox}>
         <h2 style={style.title }>Workouts: </h2>
         <WorkoutList
-          onCommentDelete={ this.handleWorkoutDelete }
-          onCommentUpdate={ this.handleWorkoutUpdate }
+          onWorkoutDelete={ this.handleWorkoutDelete }
+          onWorkoutUpdate={ this.handleWorkoutUpdate }
           data={ this.state.data }
         />
         <WorkoutForm onWorkoutSubmit={this.handleWorkoutSubmit}/>
