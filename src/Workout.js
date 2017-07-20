@@ -116,6 +116,13 @@ createMarkup() {
             value={ this.state.imageURL }
             onChange={ this.handleImageURLChange }
             />
+
+            <input
+              type="submit"
+              style={ style.workoutFormPost }
+              value="Post"
+            />
+
         </form>)
       : null }
       </div>

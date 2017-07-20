@@ -62,6 +62,7 @@ class WorkoutBox extends Component {
           data={ this.state.data }
         />
         <WorkoutForm onWorkoutSubmit={this.handleWorkoutSubmit}/>
+
       </div>
     )
   }

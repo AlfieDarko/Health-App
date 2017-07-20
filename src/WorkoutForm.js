@@ -87,6 +87,13 @@ this.setState({  name: name,
           onChange={this.handleImageURLChange}
         />
 
+        <input
+          type="submit"
+          style={ style.workoutFormPost }
+          value="Post"
+        />
+
+
       </form>
     )
   }
