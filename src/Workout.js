@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import style from './style';
 import marked from 'marked';
+import none from './none.png'
 
 class Workout extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ class Workout extends Component {
       name: '',
       description: '',
       bodypart: "",
-      imageURL: ""
+      imageURL: none
     }
   //binding all functions to this className
   this.deleteWorkout = this.deleteWorkout.bind(this);

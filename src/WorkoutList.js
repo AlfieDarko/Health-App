@@ -11,14 +11,13 @@ class WorkoutList extends Component {
       return (
       <div>
         {console.log(workout)}
-        <img src={workout.imageURL ? workout.imageURL : require(none) } style={style.workoutimage} alt=""/>
+        <img src={workout.imageURL ? workout.imageURL : none} style={style.workoutimage} alt=""/>
 
         <Workout
           name={workout.name || 'unknown'}
           uniqueID={ workout['_id'] }
           onWorkoutDelete={ this.props.onWorkoutDelete}
           onWorkoutUpdate={ this.props.onWorkoutUpdate}
-          handleWorkoutIMG={ this.imageURL}
 
           key={ workout['_id'] }>
           {workout.description || 'empty!'}
