@@ -34,7 +34,7 @@ handleWorkoutUpdate(e){
   let name = (this.state.name) ? this.state.name : null;
   let description = (this.state.description) ? this.state.description : null;
   let bodypart = (this.state.bodypart) ? this.state.bodypart : null;
-  let imageURL = (this.state.bodypart) ? this.state.imageURL: null
+  let imageURL = (this.state.imageURL) ? this.state.imageURL: null
 
   let workout = {
   name: name,
@@ -55,6 +55,7 @@ handleWorkoutUpdate(e){
 
 deleteWorkout(e){
   e.preventDefault()
+  console.log(this.props.uniqueID)
   let id = this.props.uniqueID;
   this.props.onWorkoutDelete(id);
   console.log('oops deleted');
@@ -92,9 +93,13 @@ rawMarkup() {
   href='#'
   onClick={this.updateWorkout}> Update</a>
 
-        <a style={ style.deleteLink } href="#" onClick={ this.deleteWorkout}> Delete </a>
+        <a style={ style.deleteLink }
+            href="#"
+            onClick={ this.deleteWorkout}> Delete </a>
+
         { (this.state.toBeUpdated)
         ? (<form onSubmit={ this.handleWorkoutUpdate }>
+
           <input
             type="text"
             placeholder='Update name...'
@@ -102,6 +107,7 @@ rawMarkup() {
             value={ this.state.name }
             onChange={ this.handleNameChange}
           />
+
           <input
             type="text"
             placeholder='Update description'
@@ -109,6 +115,7 @@ rawMarkup() {
             value={ this.state.description }
             onChange={ this.handleDescriptionChange }
           />
+
           <input
             placeholder='Update bodypart'
             style={ style.workoutFormBodypart }
@@ -116,6 +123,7 @@ rawMarkup() {
             onChange={ this.handleBodypartChange }
             type="text"
           />
+
           <input
             type="text"
             placeholder='Update Image'

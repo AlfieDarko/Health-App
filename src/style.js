@@ -81,6 +81,15 @@ const style = {
     paddingRight:'15px',
     fontSize:'.7rem',
     color:'red'
+  },
+  workoutimage: {
+    position:'relative',
+    float:'right',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    borderColor: '#000000',
+    height: '100px',
+    width: '100px'
   }
 }
 

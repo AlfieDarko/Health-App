@@ -12,14 +12,20 @@ class WorkoutBox extends Component {
     this.handleWorkoutSubmit = this.handleWorkoutSubmit.bind(this);
     this.handleWorkoutDelete = this.handleWorkoutDelete.bind(this);
     this.handleWorkoutUpdate = this.handleWorkoutUpdate.bind(this);
-
+    this.handleWorkoutIMG = this.handleWorkoutIMG.bind(this);
   }
+
   loadWorkoutsFromServer(){
     axios.get(this.props.url)
       .then(res => {
         this.setState({data: res.data})
       })
   }
+
+  handleWorkoutIMG(workout){
+    return <img src={`${workout.imageURL}`} alt=""/>
+  }
+
   handleWorkoutSubmit(workout) {
     let workouts = this.state.data;
     workout.id  = Date.now();
@@ -31,15 +37,17 @@ class WorkoutBox extends Component {
         this.setState({ data: workout})
       });
   }
+
   handleWorkoutDelete(id){
-    axios.delete(`${this.props.url}`)
+    axios.delete(`${this.props.url}/${id}`)
       .then(res => {
         console.log('Workout deleted');
       })
       .catch(err => {
-        console.console.error(err);
+        console.error(err);
       })
   }
+
   handleWorkoutUpdate(id, workout){
     axios.put(`${this.props.url}/${id}`, workout)
       .catch(err => {
@@ -56,6 +64,7 @@ class WorkoutBox extends Component {
     return(
       <div style={ style.workoutBox}>
         <h2 style={style.title }>Workouts: </h2>
+
         <WorkoutList
           onWorkoutDelete={ this.handleWorkoutDelete }
           onWorkoutUpdate={ this.handleWorkoutUpdate }

@@ -79,6 +79,7 @@ this.setState({  name: name,
           onChange={this.handleBodypartChange}
         />
 
+
         <input
           type="text"
           placeholder="image URL"
@@ -86,6 +87,15 @@ this.setState({  name: name,
           value={this.state.imageURL}
           onChange={this.handleImageURLChange}
         />
+
+        {/* <input
+          type="file"
+          name="imageURL"
+          accept="image/*"
+          value={this.state.imageURL}
+          onChange={this.handleImageURLChange}
+        /> */}
+
 
         <input
           type="submit"

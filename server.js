@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser') ;
 const Workout = require('./model/workouts') ;
 mongoose.Promise = global.Promise
-
+var multer  = require('multer');
+// Create a storage object with a given configuration
+var storage = multer.memoryStorage();
+// Set multer storage engine to the newly created object
+var upload = multer({ storage: storage });
 
 var app = express();
 var router = express.Router();
@@ -48,7 +52,7 @@ router.route('/workouts')
       });
     })
 
-.post(function(req, res) {
+.post(upload.single('imageURL'), function(req, res) {
   var workout = new Workout();
   //body parser lets us use the req.bodyParser
   workout.name = req.body.name;
